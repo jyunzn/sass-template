@@ -1,0 +1,14 @@
+@function px2vw($px, $design-w: 1920)
+    @return $px / $design-w * 100 * 1vw
+
+@function px2vh($px, $design-h: 960)
+    @return $px / $design-h * 100 * 1vh
+
+@function vw2px($vw, $design-w: 1920)
+    @return ($vw / 1vw) * ($design-w / 100) * 1px
+
+@function vh2px($vw, $design-h: 960)
+    @return ($vw / 1vw) * ($design-w / 100) * 1px
+
+@function percent($child, $mom)
+    @return $child / $mom * 100%

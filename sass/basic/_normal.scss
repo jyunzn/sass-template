@@ -1,0 +1,262 @@
+/*
+ *  顏色獲取 colors(main) 
+ */ 
+$colors: (
+    black:  #000000,
+    white:  #FFFFFF,
+    red:    #FF3C1E,
+    purple: #AA05E2,
+    blue:   #0000FF
+);
+@function colors($color-name){
+    @return map-get($colors, $color-name);
+}
+
+
+/*
+ * HTML 字體大小獲取: html-fz(l)
+ */
+$html-fz: (
+    l:  16,
+    m:  15,
+    s:  14
+);
+@function html-fz($size) {
+    @return map-get($html-fz, $size);
+};
+    
+
+
+
+/*
+ * 斷點
+ */
+$breakpoints: (
+    xs: 320px,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1440px
+);
+
+// +media-up(sm)
+@mixin media-up($breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media screen and (min-width: $breakpoint-value) {
+      @content;
+    }
+}
+
+// +media-up-num(1920)
+@mixin media-up-num($num: 1920) {
+    @media screen and (min-width: ($num * 1px)) {
+        @content;
+    }
+}
+
+
+// +media-down(sm)
+@mixin media-down($breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media screen and (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+}
+
+// +media-up-num(1234)
+@mixin media-down-num($num) {
+    @media screen and (max-width: ($num * 1px - 1)) {
+      @content;
+    }
+}
+
+// +media-between(sm, md)
+@mixin media-between($lower, $upper) {
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
+
+    @media screen and (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+      @content;
+    }
+}
+
+
+// 觸控裝置
+@mixin is-touch{
+    @media (hover: none){
+      @content;   
+    }
+}
+
+// 非觸控裝置
+@mixin not-touch{
+    @media (hover: hover){
+      @content;   
+    }
+}
+
+
+/*
+ * font
+ */
+// +fz(16, 16)
+@mixin fz($size, $html-fz: 16){
+    font-size: #{$size / $html-fz}rem;
+}
+
+// +ls(15, 22)
+@mixin ls($ls, $fz){
+    letter-spacing: #{$ls / $fz}em;
+}
+
+// +ls-num(0.075)
+@mixin ls-num($ls) {
+    letter-spacing: #{$ls}em;
+}
+
+// +lh(15,22)
+@mixin lh($lh, $fz){
+    line-height: #{$lh / $fz};
+}
+
+// +lh-num(1.8)
+@mixin lh-num($lh: 1.2) {
+    line-height: $lh;
+}
+
+// +fw(500)
+//
+// - 100 ( Thin, Hairline )
+// - 200 ( Extra Light, Ultra Light )
+// - 300 ( Light )
+// - 400 ( Normal, Regular )
+// - 500 ( Medium )
+// - 600 ( Semi Bold, Demi Bold )
+// - 700 ( Bold )
+// - 800 ( Extra Bold, Ultra Bold )
+// - 900 ( Black, Heavy )
+// - 950 ( Extra Black, Ultra Black )
+@mixin fw($w: 400) {
+    font-weight: $w;
+}
+
+
+@mixin d-fontF{
+    font-family: 'Montserrat', 'Noto Sans TC', "Microsoft JhengHei", "PingFang TC" , "蘋果儷中黑",'sans-serif' , Arial;
+    font-display: swap;
+}
+
+@mixin en-fontF{
+    font-family: 'Montserrat', "Microsoft JhengHei", "PingFang TC" ,"蘋果儷中黑",'sans-serif' , Arial;
+    font-display: swap;
+}
+
+@mixin zh-fontF{
+    font-family: 'Noto Sans TC', "Microsoft JhengHei", "PingFang TC" ,"蘋果儷中黑",'sans-serif' , Arial;
+    font-display: swap;
+}     
+
+// 
+@mixin fz-ibm-plex-sans {
+    font-family: 'IBM Plex Sans'
+}
+
+// 
+@mixin fz-covik-sans {
+    font-family: 'covik-sans', sans-serif
+}
+
+// 
+@mixin fz-noto-sans-tc {
+    font-family: 'Noto Sans TC'
+}
+
+
+/*
+ * margin / em
+ */
+// +mt-em(15, 22)
+@mixin mt-em($m, $fz){
+    margin-top: #{$m / $fz}em;
+}
+
+// +mb-em(15, 22)
+@mixin mb-em($m, $fz){
+    margin-bottom: #{$m / $fz}em;
+}
+
+// +ml-em(15, 22)
+@mixin ml-em($m, $fz){
+    margin-left: #{$m / $fz}em;
+}
+
+// +mr-em(15, 22)
+@mixin mr-em($m, $fz){
+    margin-right: #{$m / $fz}em;
+}
+
+
+/*
+ * padding / em
+ */
+// +pt-em(15, 22)
+@mixin pt-em($m, $fz){
+    padding-top: #{$m / $fz}em;
+}
+
+// +pb-em(15, 22)
+@mixin pb-em($m, $fz){
+    padding-bottom: #{$m / $fz}em;
+}
+
+// +pl-em(15, 22)
+@mixin pl-em($m, $fz){
+    padding-left: #{$m / $fz}em;
+}
+
+// +pr-em(15, 22)
+@mixin pr-em($m, $fz){
+    padding-right: #{$m / $fz}em;
+}
+
+
+
+/*
+ * 其他
+ */
+// 清除 A 連結的預設
+@mixin a-reset{
+    text-decoration: none;
+    &:active, &:hover, &:visited, &:focus {
+        text-decoration: none;
+        outline: 0;
+    }
+}
+
+
+/*  ===== 排版相關 ===== */
+// +poa-center
+@mixin poa-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+// +pof-center
+@mixin pof-center {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+// +d-flex(center,center,row)
+@mixin d-flex($j-c: flex-start, $a-i: stretch, $d: row){
+    display: flex;
+    justify-content: $j-c;
+    align-items: $a-i;
+    flex-direction: $d
+}
+

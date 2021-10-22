@@ -1,0 +1,17 @@
+{
+    "editor.minimap.enabled": false,
+    "files.exclude": {
+        "**/.git": false
+    },
+    "liveSassCompile.settings.formats":[
+        {
+            "format": "compressed",
+            "extensionName": ".css",
+            "savePath": "/css"
+        }
+    ],
+    "liveSassCompile.settings.generateMap": false,
+    "liveSassCompile.settings.excludeList": [
+        "**"
+    ]
+}

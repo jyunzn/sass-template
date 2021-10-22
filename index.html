@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+</head>
+<body>
+    <header class="p-header"></header>
+    <div class="test1">123</div>
+    <div class="test2">
+        <span>1</span>
+        <span>2</span>
+    </div>
+    <div class="test3">
+        <div class="test3-body"></div>
+    </div>
+    <div class="c-list">
+        <div class="c-list__title">3</div>
+        <div class="c-list__options-wrap">
+            <ul class="c-list__options">
+                <li class="c-list__option">1</li>
+                <li class="c-list__option">2</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <footer class="p-footer"></footer>
+    <script>
+
+        // 選單
+        ;(function (window, undefined) {
+            const jqListOptionsWrap = $('.c-list__options-wrap')
+            const jsListTitle       = $('.c-list__title')
+            const jsListOption       = $('.c-list__option')
+
+            function handleTitleClick() {
+                jqListOptionsWrap.stop().slideToggle();
+            }
+
+            function handleOptionSelect() {
+                jsListTitle.text(this.textContent)
+                jqListOptionsWrap.stop().slideUp();
+            }
+
+            function init() {
+                jsListTitle.click(handleTitleClick)
+                jsListOption.click(handleOptionSelect)
+            }
+
+            $(init)
+        })(window);
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+body, html,
+div, p, section,
+img, svg,
+ul, li, dl, dt, dd,
+h1, h2, h3, h4, h5, h6,
+input, label, form, button, textarea, a
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+
+html
+    font-size: html-fz(l) * 1px
+    +media-down(lg)
+        font-size: html-fz(m) * 1px
+    +media-down(sm)
+        font-size: html-fz(s) * 1px
+
+
+body
+    overflow-x: hidden
+    word-break: break-word
+    -webkit-font-smoothing: antialiased
+    image-rendering: auto
+    touch-action: manipulation
+    -moz-osx-font-smoothing: grayscale
+    +fz(16)
+
+
+ul, li
+    list-style: none
+
+a
+    text-decoration: none
+    &:hover
+        text-decoration: none
+
+input
+    background-color: initial
+    border: 0
+    outline: none
+    display: block
+    width: 100%
+    font-size: 16px
+
+textarea
+    background-color: transparent
+    width: 100%
+    height: 100%
+    border: 0
+    resize: none
+    +scrollbar-hidden
+    &:focus
+        outline: none
+
+button
+    background-color: transparent
+    border: 0
+    outline: none
+
+    &:focus
+        outline: none
+
+img
+    max-width: 100%
+
+
+// |= swiper reset
+// .c-swiper__btn
+
+
+
+// |= bootstrape reset
+// .nav-tabs
+//     border-bottom: 0
+//     .nav-link
+//         border-radius: 0
+
+// .modal-content
+//     border-radius: 0
+//     border: 0
+
+// .modal-body
+//     padding: 0
+
+
