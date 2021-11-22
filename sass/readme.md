@@ -116,7 +116,7 @@
 
 ### 常用英文
 ```txt
-(1)頁面結構
+1. 頁面結構
   容器: container
   頁頭：header
   內容：content
@@ -128,7 +128,7 @@
   頁面外圍控制整體佈局寬度：wrapper
   左右中：left right center
 
-(2)導航
+2. 導航
   導航：nav
   主導航：mainbav
   子導航：subnav
@@ -141,7 +141,7 @@
   標題: title
   摘要: summary
 
-(3)功能
+3. 功能
   標誌：logo
   廣告：banner
   登陸：login
@@ -170,4 +170,29 @@
   合作夥伴：partner
   友情鏈接：link || friendlink
   版權：copyright
+
+4. 顏色
+  4.1 功能:
+    Brand
+    Success
+    Warning
+    Danger
+    Info
+
+  4.2 主次色:
+    Primary
+    Regular
+    Secondary
+    Placeholder
+
+  4.3 亮度:
+    Base
+    Light
+    Lighter
+    Extra Light
+    Dark
+
+5. 圖
+  img-fluid      // 自適應圖 ( max-width: 100%, height: auto )
+  img-thumbnail  // 縮略圖
 ```
