@@ -170,6 +170,7 @@
   合作夥伴：partner
   友情鏈接：link || friendlink
   版權：copyright
+  標示：sign || indication
 
 4. 顏色
   4.1 功能:
