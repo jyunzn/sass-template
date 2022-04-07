@@ -171,6 +171,7 @@
   友情鏈接：link || friendlink
   版權：copyright
   標示：sign || indication
+  覆蓋：overlay ( 指的就是 fix 在最上面的那層，通常是 loading page )
 
 4. 顏色
   4.1 功能:
